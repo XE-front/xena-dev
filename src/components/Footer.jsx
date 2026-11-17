@@ -2,23 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-const NAV_OFFSET = 80
-
 const Footer = () => {
-  const scrollTo = (id) => {
-    const el = document.getElementById(id)
-    if (el) {
-      const rect = el.getBoundingClientRect()
-      const targetY = rect.top + window.pageYOffset - NAV_OFFSET
-      window.scrollTo({ top: targetY, behavior: 'smooth' })
-    }
-  }
-
   return (
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <div className="nav-logo">&lt;Xena/&gt;</div>
+          <a className="nav-logo" href="#hero">
+            &lt;Xena/&gt;
+          </a>
           <p>Building the web, one line of code at a time.</p>
         </div>
         <div className="footer-links">
@@ -26,30 +17,43 @@ const Footer = () => {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <button onClick={() => scrollTo('hero')}>Home</button>
+                <a href="#hero">Home</a>
               </li>
               <li>
-                <button onClick={() => scrollTo('about')}>About</button>
+                <a href="#about">About</a>
               </li>
               <li>
-                <button onClick={() => scrollTo('projects')}>Projects</button>
+                <a href="#skills">Skills</a>
               </li>
               <li>
-                <button onClick={() => scrollTo('contact')}>Contact</button>
+                <a href="#projects">Projects</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
               </li>
             </ul>
           </div>
           <div>
             <h4>Connect</h4>
             <div className="social-row">
-              <a href="https://github.com/XE-front" aria-label="GitHub" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faGithub} />
-                </a>
-              <a href="https://www.linkedin.com/in/xena-emit/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faLinkedin} />
+              <a
+                href="https://github.com/XE-front"
+                aria-label="GitHub"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/xena-emit/"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
               </a>
               <a href="mailto:xenaemit1231@gmail.com" aria-label="Email">
-                <FontAwesomeIcon icon={faEnvelope} />
+                <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
               </a>
             </div>
           </div>

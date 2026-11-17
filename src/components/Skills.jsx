@@ -1,8 +1,17 @@
-const skills = {
-  frontend: ['React', 'JavaScript', 'Vue.js', 'HTML5', 'CSS3 / Tailwind CSS'],
-  backend: ['Laravel', 'PHP', 'REST APIs', 'Database', 'MySQL'],
-  tools: ['Git', 'GitHub', 'VS Code'],
-}
+const skillGroups = [
+  {
+    title: 'Frontend',
+    items: ['React', 'JavaScript', 'Vue.js', 'HTML5', 'CSS3 / Tailwind CSS'],
+  },
+  {
+    title: 'Backend',
+    items: ['Laravel', 'PHP', 'REST APIs', 'Database Design', 'MySQL'],
+  },
+  {
+    title: 'Tools & Workflow',
+    items: ['Git', 'GitHub', 'VS Code'],
+  },
+]
 
 const additionalSkills = [
   'Responsive Design',
@@ -13,28 +22,34 @@ const additionalSkills = [
 ]
 
 const Skills = () => {
-  const renderSkillGroup = (title, items) => (
-    <div className="skill-card" key={title}>
-      <h3>{title}</h3>
-      <ul>
-        {items.map((skill) => (
-          <li key={skill}>{skill}</li>
-        ))}
-      </ul>
-    </div>
-  )
-
   return (
-    <section className="section section-alt" id="skills">
+    <section className="section" id="skills">
       <div className="container">
-        <h2 className="section-title">Skills &amp; Technologies</h2>
-        <div className="skills-grid">
-          {renderSkillGroup('Frontend', skills.frontend)}
-          {renderSkillGroup('Backend', skills.backend)}
-          {renderSkillGroup('Tools & Others', skills.tools)}
+        <div className="section-header">
+          <span className="section-index" aria-hidden="true">
+            02
+          </span>
+          <div>
+            <p className="eyebrow">Capabilities</p>
+            <h2 className="section-title">Skills &amp; Technologies</h2>
+          </div>
         </div>
+
+        <div className="skills-columns">
+          {skillGroups.map((group) => (
+            <div className="skill-column" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
         <div className="additional-skills">
-          <h3>Additional Skills</h3>
+          <h3>Core Practices</h3>
           <div className="chip-row">
             {additionalSkills.map((item) => (
               <span className="chip" key={item}>
